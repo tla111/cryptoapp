@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 import './App.css';
 
@@ -23,9 +23,18 @@ const App = () => {
                         </Routes>
                     </div>
                 </Layout>
-            </div>
-            <div className="footer">
+                <div className="footer">
+                    <Typography.Title level={5} style={{ color: "white", textAlign: "center" }}>
+                        Cryptoverse , <br />
+                        All right reserved
+                    </Typography.Title>
+                    <Space>
+                        <Link to="/">Home</Link>
+                        <Link to="/exchanges">Exchanges</Link>
+                        <Link to="/news">News</Link>
 
+                    </Space>
+                </div>
             </div>
         </div>
     )
