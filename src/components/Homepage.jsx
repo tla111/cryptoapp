@@ -13,7 +13,7 @@ const Homepage = () => {
                 <Col span={12}><Statistic title="Total Crypto Currencies" value="5" /></Col>
                 <Col span={12}><Statistic title="Total Exchanges" value="5" /></Col>
                 <Col span={12}><Statistic title="Total Market Cap" value="5" /></Col>
-                <Col span={12}><Statistic title="Total 24h Volumne" value="5" /></Col>
+                <Col span={12}><Statistic title="Total 24h Volume" value="5" /></Col>
                 <Col span={12}><Statistic title="Total Markets" value="5" /></Col>
 
             </Row>
