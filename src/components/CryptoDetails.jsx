@@ -17,8 +17,6 @@ const CryptoDetails = () => {
     const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
     const cryptoDetails = data?.data?.coin;
 
-    console.log(data?.data?.coin);
-
     const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
     const stats = [
@@ -77,7 +75,7 @@ const CryptoDetails = () => {
                         <Title level={3} className="coin-details-heading">
                             Other Statistics Info
                         </Title>
-                        <p>An overview showing the statistics of {cryptoDetails.name}, such as the base and quote currency, the rank, and trading volume.</p>
+                        <p>An overview showing the statistics of {data?.data?.coin.name}, such as the base and quote currency, the rank, and trading volume.</p>
                     </Col>
                     {genericStats.map(({ icon, title, value }) => (
                         <Col className="coin-stats">
@@ -93,10 +91,25 @@ const CryptoDetails = () => {
             <Col className="coin-desc-link">
                 <Row className="coin-desc">
                     <Title level={3} className="coin-details-heading">
-                        What is {cryptoDetails.name}?
-                        {HTMLReactParser(cryptoDetails.description)}
+                        What is {data?.data?.coin.name}?
+                        {HTMLReactParser(data?.data?.coin.description)}
                     </Title>
                 </Row>
+                <Col className="coin-links">
+                    <Title level={3} className="coin-details-heading">
+                        {data?.data?.coin.name} Links
+                    </Title>
+                    {data?.data?.coin.links.map((link) => (
+                        <Row className="coin-link" key={link.name}>
+                            <Title level={5} className="link-name">
+                                {link.type}
+                            </Title>
+                            <a href={link.url} target="_blank" rel="noreferrer">
+                                {link.name}
+                            </a>
+                        </Row>
+                    ))}
+                </Col>
             </Col>
         </Col>
     )
